@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{legalpaper, landscape, margin= 3in}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	% Insert algorithm
+	\begin{algorithm}
+		\caption{compute a window period exponential moving average}
+		\label{exponential-moving-average}
+		\begin{algorithmic}[2]
+			\Procedure{ExponentialMovingAverage}{$values$, $window$}
+			\State $weights = numpy.exp(numpy.linspace(-1., 0., window))$
+			\Comment{weight more recent data greater}
+			\State $weights /= weights.sum()$
+			\State $a = numpy.convolve(values, weights, mode='full')[:len(values)]$
+			\Comment{all data to the end of values}
+			\State $a[:window] = a[window]$
+			\Comment{average of window}
+			\State Return $a$
+			\Comment{return average}
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+\end{document}

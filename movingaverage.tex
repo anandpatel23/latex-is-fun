@@ -1,0 +1,24 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	% Insert algorithm
+	\begin{algorithm}
+		\caption{compute a window period simple moving average}
+		\label{moving-average}
+		\begin{algorithmic}[1]
+			\Procedure{MovingAverage}{$values$, $window$}
+			\State $weights = numpy.repeat(1.0, weights, 'valid')$
+			\Comment{repeat 1.0 for weight that's valid}
+			\State $smas = numpy.convolve(values, weights, 'valid')$
+			\Comment{line smoothening}
+			\State Return $smas$
+			\Comment{list of values being returned as numpy array}
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+\end{document}
