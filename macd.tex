@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+	% Insert algorithm
+	\begin{algorithm}
+		\caption{computer moving average convergence/divergence}
+		\label{macd}
+		\begin{algorithmic}[1]
+			\Procedure{MACD}{$x$, $slow$=26, $fast$=12}
+			\Comment 1 month, 2 weeks
+				\State $ema_slow$ = ema(x, $slow$)
+				\State $ema_fast$ = ema(x, $fast$)
+			\State Return $ema_slow$, $ema_fast$, $emafast-slow$
+			\EndProcedure
+		\end{algorithmic}
+	\end{algorithm}
+\end{document}
